@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/aksen/Downloads/developer_portfolio.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vacxe - Software Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(64, 224, 208, 0.1), rgba(138, 43, 226, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: -2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .main-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #40e0d0, #8a2be2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            font-weight: bold;
+            box-shadow: 0 20px 40px rgba(64, 224, 208, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(64, 224, 208, 0.4);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 20px 40px rgba(64, 224, 208, 0.3); }
+            50% { box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3); }
+            100% { box-shadow: 0 20px 40px rgba(64, 224, 208, 0.3); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #40e0d0, #8a2be2, #ff6b6b);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .bio {
+            font-size: 1.2rem;
+            color: #c0c0c0;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .cv-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            text-align: left;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #40e0d0, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(64, 224, 208, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .experience-item:hover::before {
+            left: 100%;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(64, 224, 208, 0.1);
+            border-color: rgba(64, 224, 208, 0.2);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #40e0d0;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .duration {
+            font-size: 1rem;
+            color: #8a2be2;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+
+        .job-type {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities {
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities h4 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .responsibilities p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .results {
+            margin-bottom: 1rem;
+        }
+
+        .results h4 {
+            font-size: 1.1rem;
+            color: #40e0d0;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .results p {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        .applications {
+            margin-top: 1rem;
+        }
+
+        .applications h4 {
+            font-size: 1.1rem;
+            color: #8a2be2;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .app-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .app-list li {
+            color: #c0c0c0;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .app-list li::before {
+            content: '▸';
+            color: #40e0d0;
+            position: absolute;
+            left: 0;
+        }
+
+        .app-link {
+            color: #40e0d0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .app-link:hover {
+            color: #8a2be2;
+        }
+
+        .current-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #40e0d0, #8a2be2);
+            color: #ffffff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .skills-summary {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .skills-summary h3 {
+            font-size: 1.5rem;
+            color: #40e0d0;
+            margin-bottom: 1rem;
+        }
+
+        .skills-summary p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .contact-section {
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(64, 224, 208, 0.2);
+            border-color: rgba(64, 224, 208, 0.3);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            fill: #40e0d0;
+        }
+
+        .contact-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #40e0d0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(64, 224, 208, 0.2);
+            border-color: rgba(64, 224, 208, 0.3);
+        }
+
+        .social-link.github:hover {
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link.instagram:hover {
+            box-shadow: 0 15px 30px rgba(225, 48, 108, 0.3);
+            border-color: rgba(225, 48, 108, 0.4);
+        }
+
+        .social-link.linkedin:hover {
+            box-shadow: 0 15px 30px rgba(0, 119, 181, 0.3);
+            border-color: rgba(0, 119, 181, 0.4);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .code-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            pointer-events: none;
+            white-space: pre;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .bio {
+                font-size: 1rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .job-meta {
+                align-items: flex-start;
+                text-align: left;
+                margin-top: 0.5rem;
+            }
+
+            .cv-section {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="code-bg" id="codeBackground">while(learning) {
+  keepCoding();
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+while(learning) {
+  keepCoding();
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+while(learning) {
+  keepCoding();
+}
+
+function createAwesome() {
+  return "code";
+}
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+function createAwesome() {
+  return "code";
+}
+
+function createAwesome() {
+  return "code";
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+while(learning) {
+  keepCoding();
+}
+
+while(learning) {
+  keepCoding();
+}
+
+while(learning) {
+  keepCoding();
+}
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+function createAwesome() {
+  return "code";
+}
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+while(learning) {
+  keepCoding();
+}
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+while(learning) {
+  keepCoding();
+}
+
+function createAwesome() {
+  return "code";
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+while(learning) {
+  keepCoding();
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+while(learning) {
+  keepCoding();
+}
+
+while(learning) {
+  keepCoding();
+}
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+const developer = {
+  name: "vacxe",
+  skills: ["js", "python"]
+};
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+while(learning) {
+  keepCoding();
+}
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+function createAwesome() {
+  return "code";
+}
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+class Innovation {
+  constructor() {
+    this.impact = true;
+  }
+}
+
+function createAwesome() {
+  return "code";
+}
+
+while(learning) {
+  keepCoding();
+}
+
+const passion = () =&gt; {
+  return dedication * creativity;
+};
+
+</div>
+    
+    <div class="floating-shapes">
+        <div class="shape" style="transform: translate(4.95751px, -2.8178px);"></div>
+        <div class="shape" style="transform: translate(9.91501px, -5.63559px);"></div>
+        <div class="shape" style="transform: translate(14.8725px, -8.45339px);"></div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="profile-section">
+                
+                <h1>Konstantin Aksenov</h1>
+                <p class="title">Technical Lead Engineer</p>
+                <p class="bio">
+                    Mobile Engineer with 13+ years of experience specializing in Android development, 
+                    CI/CD optimization, and team leadership. Currently Technical Lead Engineer at Westpac Group, 
+                    with extensive experience at major financial institutions and tech companies across Australia, 
+                    Thailand, and Russia.
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                        </svg>
+                        <a href="mailto:aksenov.kostya@gmail.com" class="contact-link">aksenov.kostya@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="skills-summary">
+                    <h3>Core Expertise</h3>
+                    <p>Mobile Application Development • Android Architecture • CI/CD Systems • Team Leadership • 
+                    Kotlin/Java • Build Optimization • UI Testing Infrastructure • DevOps • Foundation Teams</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Technical Lead Engineer<span class="current-badge">Current</span></div>
+                            <div class="company">Westpac Group</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">March 2025 - Present</div>
+                            <div class="location">Australia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Lead technical architecture and development strategy for mobile banking applications. 
+                        Mentor senior engineers and establish development best practices. Drive CI/CD pipeline optimization 
+                        and infrastructure improvements. Collaborate with product teams on technical roadmap planning. 
+                        Lead code reviews and ensure high-quality deliverables. Manage technical debt reduction initiatives. 
+                        Champion DevOps practices and automated testing frameworks. Interface with stakeholders on 
+                        technical feasibility and delivery timelines.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Software Engineer</div>
+                            <div class="company">Commonwealth Bank</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">October 2019 - March 2025</div>
+                            <div class="location">Australia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Architected and developed mobile banking applications serving millions of customers. 
+                        Built and maintained support infrastructure for critical financial services. Led CI/CD pipeline 
+                        improvements reducing deployment time by 60%. Created comprehensive development tooling suite 
+                        for engineering teams. Implemented build optimization strategies improving compilation times. 
+                        Established UI testing infrastructure with automated test suites. Served as foundation team 
+                        member setting technical standards across mobile development. Collaborated with security teams 
+                        on compliance and risk management for mobile banking features.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Delivered high-impact features for Australia's leading digital bank. Improved development 
+                        velocity through tooling and automation. Maintained 99.9% uptime for critical banking services.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Mobile Engineer</div>
+                            <div class="company">Sonder</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">May 2019 - October 2019</div>
+                            <div class="location">Australia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Developed innovative app features for emergency response and safety technology platform. 
+                        Architected and implemented comprehensive continuous integration and delivery system from scratch. 
+                        Collaborated with cross-functional teams to integrate IoT devices with mobile applications. 
+                        Optimized app performance for real-time emergency response scenarios. Implemented automated 
+                        testing pipelines ensuring reliability of critical safety features.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Successfully delivered CI/CD system reducing deployment time and improving code quality. 
+                        Enhanced app reliability for life-critical safety features.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Android Developer</div>
+                            <div class="company">Agoda</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">June 2017 - April 2019</div>
+                            <div class="location">Thailand</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Maintained and enhanced travel booking applications serving 30M+ global users. 
+                        Conducted technical interviews and mentored junior developers. Architected and implemented 
+                        API testing frameworks ensuring service reliability. Led sprint planning and task estimation 
+                        for mobile development team. Managed complex release cycles coordinating with multiple stakeholders. 
+                        Built and maintained CI/CD systems and DevOps infrastructure. Developed internal tooling improving 
+                        developer productivity. Contributed to open source projects and served on foundation team 
+                        establishing mobile development standards.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Successfully managed applications with massive scale and international user base. 
+                        Gained extensive experience in international team communication and collaboration. 
+                        Actively participated in internal education programs and knowledge sharing initiatives. 
+                        Improved app performance and user experience for global travel platform.</p>
+                    </div>
+                    <div class="applications">
+                        <h4>Applications</h4>
+                        <ul class="app-list">
+                            <li>Agoda Android application - Global travel booking platform</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Android Developer</div>
+                            <div class="company">Simple Systems</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">August 2015 - April 2017</div>
+                            <div class="location">Russia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Architected clean, scalable application architecture for ride-sharing platform. 
+                        Developed and maintained Moov.ru application using 100% Kotlin implementation. 
+                        Built dual-sided marketplace with separate applications for passengers and drivers. 
+                        Implemented comprehensive unit testing framework ensuring code quality and reliability. 
+                        Integrated real-time location services and payment processing systems. 
+                        Collaborated with backend team on API design and optimization.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Mastered advanced Android technologies including RxJava, Kotlin, Dependency Injection, 
+                        and DataBinding. Successfully delivered production-ready ride-sharing applications. 
+                        Established best practices for Kotlin development within the organization.</p>
+                    </div>
+                    <div class="applications">
+                        <h4>Applications</h4>
+                        <ul class="app-list">
+                            <li>Moov client app - Passenger ride-booking application</li>
+                            <li>Moov driver app - Driver-side application with real-time tracking</li>
+                            <li>Ecolife taxi - Eco-friendly taxi service (discontinued)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Middle Android Developer</div>
+                            <div class="company">Higher School of Economics - Innovation IT Department</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">November 2013 - August 2015</div>
+                            <div class="location">Russia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Developed specialized healthcare applications integrating with medical devices and sensors. 
+                        Implemented low-level communication protocols including Bluetooth, BLE, and WiFi. 
+                        Worked extensively with third-party medical devices using custom and proprietary protocols. 
+                        Performed reverse engineering on unknown communication protocols to enable device integration. 
+                        Collaborated with healthcare professionals to ensure regulatory compliance and user safety. 
+                        Optimized applications for battery life and real-time data processing.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Gained deep expertise in Android's lower-level APIs and hardware communication protocols. 
+                        Successfully integrated complex medical devices with unknown specifications. 
+                        Developed strong reverse engineering and protocol analysis skills. 
+                        Delivered healthcare solutions meeting strict regulatory requirements.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Junior Android Developer</div>
+                            <div class="company">KR Digital Workshop</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">May 2012 - November 2013</div>
+                            <div class="location">Russia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Create apps for outsource orders.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Improved base experience with Android. Android guidelines, Fragment, Activity, external libraries, 
+                        client-server communication. Gained experience with GPS working and offline records. 
+                        Experience with merchant services.</p>
+                    </div>
+                    <div class="applications">
+                        <h4>Applications</h4>
+                        <ul class="app-list">
+                            <li>TassTelecom (removed from market) - news aggregation app</li>
+                            <li><a href="https://play.google.com/store/apps/details?id=su.k_r.nakolesah" class="app-link" target="_blank">Nakolesah</a> - app for car drivers</li>
+                            <li>Maraquia (<a href="http://www.maraquia.com/" class="app-link" target="_blank">maraquia.com</a>) - removed from market</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Junior QT Developer</div>
+                            <div class="company">Nostra Trade</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">January 2012 - May 2012</div>
+                            <div class="location">Russia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Create apps for trading.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Gained experience with QT Creator.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Junior Android Developer</div>
+                            <div class="job-type">Full-time</div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="duration">May 2010 - December 2011</div>
+                            <div class="location">Russia</div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <p>Create apps for health care.</p>
+                    </div>
+                    <div class="results">
+                        <h4>Results &amp; Achievements</h4>
+                        <p>Obtained first experience with Android development.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/vacxe" target="_blank" rel="noopener noreferrer" class="social-link github">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                    </svg>
+                    GitHub
+                </a>
+
+                <a href="https://instagram.com/vacxe" target="_blank" rel="noopener noreferrer" class="social-link instagram">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                    </svg>
+                    Instagram
+                </a>
+
+                <a href="https://linkedin.com/in/vacxe" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dynamic code background
+        const codeSnippets = [
+            'function createAwesome() {\n  return "code";\n}',
+            'const developer = {\n  name: "vacxe",\n  skills: ["js", "python"]\n};',
+            'while(learning) {\n  keepCoding();\n}',
+            'class Innovation {\n  constructor() {\n    this.impact = true;\n  }\n}',
+            'const passion = () => {\n  return dedication * creativity;\n};'
+        ];
+
+        function generateCodeBackground() {
+            const codeBackground = document.getElementById('codeBackground');
+            let content = '';
+            
+            for (let i = 0; i < 50; i++) {
+                const snippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                content += snippet + '\n\n';
+            }
+            
+            codeBackground.textContent = content;
+        }
+
+        // Generate code background on load
+        generateCodeBackground();
+
+        // Add subtle parallax effect to floating shapes
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                const xMove = (x - 0.5) * speed * 20;
+                const yMove = (y - 0.5) * speed * 20;
+                
+                shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            });
+        });
+
+        // Add click animation to avatar
+        document.querySelector('.avatar').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'pulse 2s infinite';
+            }, 100);
+        });
+    </script>
+
+</body></html>
